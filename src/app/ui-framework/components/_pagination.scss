@@ -1,0 +1,49 @@
+[dir='rtl'] {
+}
+
+ngb-pagination ul.pagination {
+  margin-bottom: 0;
+}
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-down($breakpoint) {
+    //$infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+    ngb-pagination.minimal-#{$breakpoint} ul.pagination {
+
+      li:not(.active) a:not([aria-label='Next']):not([aria-label='Previous']) {
+        display: none;
+      }
+
+      li a[aria-label='Previous'] {
+        @include border-left-radius($border-radius);
+      }
+
+      li a[aria-label='Next'] {
+        @include border-right-radius($border-radius);
+      }
+
+      [dir='rtl'] {
+        li a[aria-label='Previous'] {
+          @include border-right-radius($border-radius);
+        }
+
+        li a[aria-label='Next'] {
+          @include border-left-radius($border-radius);
+        }
+      }
+    }
+
+    [dir='rtl'] {
+      ngb-pagination.minimal-#{$breakpoint} ul.pagination {
+
+        li a[aria-label='Previous'] {
+          @include border-right-radius($border-radius);
+        }
+
+        li a[aria-label='Next'] {
+          @include border-left-radius($border-radius);
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "Labels": {
+
+  },
+  "Messages": {
+
+  },
+  "Errors": {
+
+  },
+  "Product": {
+    "name": "نام",
+    "description": "توضیحات",
+    "category": "دسته بندی"
+  },
+  "ProductSearchModel": {
+    "name": "نام",
+    "description": "توضیحات",
+    "category": "دسته بندی"
+  }
+}

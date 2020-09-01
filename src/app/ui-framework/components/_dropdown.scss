@@ -1,0 +1,8 @@
+[dir='rtl'] {
+  
+}
+.btn.dropdown-toggle{
+    &::after{
+        vertical-align:middle;
+    }
+}

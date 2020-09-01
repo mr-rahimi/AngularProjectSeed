@@ -1,0 +1,67 @@
+{
+  "Errors": {
+    "email": "آدرس ایمیل وارد شده معتبر نمی باشد",
+    "required": "وارد کردن این فیلد اجباری می باشد",
+    "Invalid Email Address": "آدرس ایمیل وارد شده معتبر نمی باشد",
+    "Internal Server Error": "خطای داخلی سرور",
+    "url": "آدرس وارد شده معتبر نیست",
+    "ErrorInFetchData": "خطا در دریافت اطلاعات",
+    "Null_Value_Not_Allowed": "برخی از فیلد ها خالی است"
+  },
+  "Labels": {
+    "either":"مهم نیست" ,
+    "yes": "بلی",
+    "no": "خیر",
+    "ok": "تائید",
+    "cancel": "انصراف",
+    "back": "بازگشت",
+    "appTitle": "Richbook",
+    "actions": "عملیات",
+    "create": "افزودن",
+    "delete": "حذف",
+    "edit": "ویرایش",
+    "details": "جزئیات",
+    "save": "ذخیره",
+    "search": "جستجو",
+    "row": "ردیف",
+    "unset": "ثبت نشده",
+    "all": "همه",
+    "itemsPerPage": "{{count}} رکورد در هر صفحه",
+    "viewHelpItem": "نمایش راهنما",
+    "viewChallenges": "نمایش چالش",
+    "firstChallenge": "چالش اول",
+    "secondChallenge": "چالش دوم",
+    "signout": "خروج",
+    "adminPanel": "پنل مدیریت"
+  },
+  "Messages": {
+    "deleteConfirmation": "آیا از حذف رکورد مورد نظر اطمینان دارید؟",
+    "enterYourTermForSearch": "عبارت مورد نظر را برای جستجو وارد کنید",
+    "recordsNotFound": "رکوردی یافت نشد",
+    "loading": "در حال دریافت",
+    "clearAll": "حذف همه",
+    "changesAreSavedSuccessfully": "تغییرات با موفقیت ذخیره شد",
+    "pleaseSelectEnoughKnowledgeAtleast": "حداقل {{min}} مورد را انتخاب نمائید",
+    "pleaseSelectUnknownKnowledgeItems": "درباره کدامیک از موارد استفاده شده در متن اطلاعات کافی ندارید؟",
+    "challengeDisableHint": "این چالش تا ساعت {{time}} روز {{date}} غیر فعال است"
+  },
+  "BookSectionView": {
+    "readPassage": "خواندن متن",
+    "help": "راهنما",
+    "introduction": "چکیده",
+    "challenges": " چالش ها"
+  },
+  "KnowledgeTypes": {
+    "word": "کلمه",
+    "grammar": "گرامر",
+    "phrase": "عبارت",
+    "idiom": "اصطلاح",
+    "word(s)": "کلمه ها",
+    "grammar(s)": "گرامر ها",
+    "phrase(s)": "عبارت ها",
+    "idiom(s)": "اصطلاح ها"
+  },
+  "Currencies": {
+    "toman": "تومان"
+  }
+}

@@ -1,0 +1,145 @@
+<div class="card">
+  <div class="card-body">
+    <div class="row mx-2">
+      <!--simple search-->
+      <div class="col-md-6 px-0 mb-2 ">
+        <div class="input-group col-lg-6 col-md-10 col-sm-12 d-flex justify-content-start px-0"
+             [class.disable-element]="!service.simpleSearch">
+          <input type="text"
+                 name="key"
+                 class="form-control"
+                 [(ngModel)]="service.simpleSearchModel.key"
+                 [placeholder]="'Messages.enterYourTermForSearch' | translate"
+                 (keyup.enter)="service.refresh()">
+          <div class="input-group-append">
+            <button class="btn bg-primary text-white"
+                    type="button"
+                    (click)="service.refresh()"
+                    (keydown.enter)="service.refresh()">
+              <i class="fa fa-search"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <!--toolbar buttons-->
+      <div class="col-md-6 px-0 mb-2 space-contents d-flex justify-content-md-end justify-content-sm-start">
+        <button type="button"
+                class="btn btn-success btn-icon-split"
+                routerLink="../create-book">
+          <span class="icon text-white-50">
+            <i class="fa fa-plus"></i>
+          </span>
+          <span class="text"
+                [innerText]="'Labels.create' | translate"></span>
+        </button>
+      </div>
+      <!--table-->
+      <div class="table-reflow">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col"
+                  [innerText]="'Labels.row' | translate">
+              </th>
+              <th scope="col"
+                  [innerText]="'Book.name' | translate">
+              </th>
+              <th scope="col"
+                  [innerText]="'Book.description' | translate">
+              </th>
+              <th scope="col"
+                  [innerText]="'Labels.actions' | translate">
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngIf="!service.currentPage?.totalItemsCount && service.searchState.IsSucceeded">
+              <td colspan="100%"
+                  class=" text-center"
+                  [innerText]="'Messages.recordsNotFound' | translate">
+              </td>
+            </tr>
+            <tr *ngFor="let item of service.currentPage?.items; let i = index">
+              <td title="{{'Labels.row' | translate }}">
+                {{ (service.currentPage?.pageIndex * service.currentPage?.pageSize) + i+1 }}
+              </td>
+              <td [innerText]="item.name"
+                  title="{{'Book.name' | translate}}"></td>
+              <td [innerText]="item.description"
+                  title="{{'Book.description' | translate}}"></td>
+              <td title="{{'Labels.actions' | translate}}">
+                <div ngbDropdown
+                     class="d-inline-block">
+                  <button class="btn btn-outline-primary"
+                          id="dropdownBasic1"
+                          ngbDropdownToggle>
+                    <i class="fa fa-wrench"></i>
+                  </button>
+                  <div ngbDropdownMenu
+                       aria-labelledby="dropdownBasic1">
+                    <button ngbDropdownItem
+                            routerLink="../delete-book"
+                            [queryParams]="{id: item?.id}"
+                            [innerText]="'Labels.delete' | translate">
+                    </button>
+                    <button ngbDropdownItem
+                            routerLink="../edit-book"
+                            [queryParams]="{id: item?.id}"
+                            [innerText]="'Labels.edit' | translate">
+                    </button>
+                    <button ngbDropdownItem
+                            routerLink="../details-book"
+                            [queryParams]="{id: item?.id}"
+                            [innerText]="'Labels.details' | translate">
+                    </button>
+                    <button ngbDropdownItem
+                            [routerLink]="[item.id,'book-sections']"
+                            [innerText]="'Labels.bookSections' | translate">
+                    </button>
+                    <button ngbDropdownItem
+                            routerLink="../book-shopping-info"
+                            [queryParams]="{id: item?.id}"
+                            [innerText]="'Labels.bookShoppingInfo' | translate">
+                    </button>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="spinner-grow absolute-center"
+             *ngIf="service.searchState.IsWait">
+        </div>
+      </div>
+      <!--paginator-->
+      <div class="col-lg-6 d-flex justify-content-lg-start justify-content-center px-1 mb-2"
+           *ngIf="service.currentPage?.totalItemsCount">
+        <ngb-pagination [collectionSize]="service.currentPage?.totalItemsCount"
+                        [maxSize]="5"
+                        [boundaryLinks]="true"
+                        [page]="service.currentPage?.pageIndex + 1"
+                        (pageChange)="onPageChange($event)"
+                        [pageSize]="service.currentPage?.pageSize"
+                        class="minimal-xs">
+        </ngb-pagination>
+      </div>
+      <div class="col-lg-6 d-flex justify-content-lg-end justify-content-center px-0"
+           *ngIf="service.currentPage?.totalItemsCount">
+        <select class="custom-select"
+                style="width: auto"
+                name="pageSize"
+                (change)="service.refresh()"
+                [(ngModel)]="service.pagingOptions.pageSize">
+          <option [ngValue]="5"
+                  [innerText]="'Labels.itemsPerPage' | translate:{count : 5}">
+          </option>
+          <option [ngValue]="10"
+                  [innerText]="'Labels.itemsPerPage' | translate:{count : 10}">
+          </option>
+          <option [ngValue]="15"
+                  [innerText]="'Labels.itemsPerPage' | translate:{count : 15}"></option>
+        </select>
+      </div>
+    </div>
+  </div>
+</div>

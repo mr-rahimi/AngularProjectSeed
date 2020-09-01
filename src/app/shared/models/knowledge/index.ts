@@ -1,0 +1,1 @@
+export { KnowledgeModel } from './knowledgeModel';

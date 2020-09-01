@@ -1,0 +1,60 @@
+@import './sass/main';
+
+.selectedSubMenu {
+  background: darken($sidebar-color, 5);
+}
+
+.subMenuParent {
+  text-indent: 5px;
+  padding: 0 10px 0 10px !important;
+}
+
+.subMenuChildren {
+  position: inherit !important;
+  text-indent: 10px;
+  padding: 0 10px 0 10px !important;
+}
+
+.subMenuLabel {
+  width: -webkit-fill-available;
+}
+
+.treeview-menu > :first-child {
+  margin-top: 10px;
+}
+
+.treeview-menu > :first-child {
+  margin-bottom: 10px;
+}
+
+.treeview-menu {
+  min-width: 200px;
+
+  li {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    list-style: none;
+    overflow-x:hidden;
+  }
+}
+
+[dir="rtl"] {
+
+  .menuAngle {
+    transform: rotate(180deg);
+  }
+}
+
+[dir="ltr"] {
+  .menuAngle {
+    transform: rotate(0);
+  }
+}
+
+.selectedSubMenu > i:last-child {
+  transform: rotate(90deg);
+  -webkit-transition: all 0.1s linear;
+  -moz-transition: all 0.1s linear;
+  -o-transition: all 0.1s linear;
+  transition: all 0.1s linear;
+}

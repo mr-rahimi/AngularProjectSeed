@@ -1,0 +1,2 @@
+ng-select https://github.com/ng-select/ng-select
+angular-editor https://github.com/kolkov/angular-editor

@@ -1,0 +1,9 @@
+.input-button {
+  display: flex !important;
+
+  label.btn {
+    &.active {
+      border: $border-width solid $success !important;
+    }
+  }
+}

@@ -1,0 +1,8 @@
+.disable-element {
+  pointer-events: none;
+  opacity: 0.4;
+}
+.link-unstyled, .link-unstyled:link, .link-unstyled:hover {
+  color: inherit;
+  text-decoration: inherit;
+}

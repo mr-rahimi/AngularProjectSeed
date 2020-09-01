@@ -1,0 +1,53 @@
+{
+  "Email": "آدرس پست الکترونیک",
+  "Name": "نام",
+  "Description": "توضیحات",
+  "Successful Registeration": "ثبت نام با موفقیت انجام شد",
+  "Labels": {
+    "Login": "ورود",
+    "register": "ثبت نام",
+    "resetPassword": "بازیابی کلمه عبور",
+    "LoginTitle": "وارد شوید",
+    "username": "نام کاربری",
+    "email": "کلمه عبور"
+  },
+  "Errors": {
+    "invalid_arguments": "اطلاعات وارد شده معتبر نمی باشد",
+    "PasswordTooShort": "طول کلمه عبور حداقل شش کاراکتر است",
+    "PasswordRequiresNonAlphanumeric": "کلمه عبور باید حداقل شامل یکی از حروف الفبا باشد",
+    "PasswordRequiresLower": "کلمه عبور باید حداقل شامل یک حرف کوچک انگلیسی باشد",
+    "PasswordRequiresUpper": "کلمه عبور باید حداقل شامل یک حرف بزرگ انگلیسی باشد",
+    "DuplicateUserName": "این آدرس ایمیل پیش از این استفاده شده است",
+    "passwordsAreNotSame": "کلمه عبور و تکرار آن باید یکسان باشند",
+    "InvalidToken": "کلید رمز وارد شده معتبر نیست"
+  },
+  "Messages": {
+    "SuccessfullyRegistered": "حساب کاربری شما ایجاد شد.  لینک فعالسازی به ایمل تان ارسال شد. جهت فعالسازی حساب کاربری بر روی لینک ارسال شده کلیک نمائید",
+    "SuccessfullyResetPasswordSent": "لینک بازیابی کلمه عبور به ایمل تان ارسال شد. جهت فعالسازی حساب کاربری بر روی لینک ارسال شده کلیک نمائید",
+    "PleaseFillFormCompletely": "لطفا فرم را بطور کامل تکمیل نمائید",
+    "emailConfirmationMessage": "کد فعالسازی به ایمیل معرفی شده شما هنگام ثبت نام ارسال شده است.لطفا کد فعالسازی را در کادر متنی زیر وارد نمائید",
+    "sendResetPasswordTokenMessage": "ادرس ایمیل خود در هنگام ثبت نام را در کادر متنی زیر وارد نمائید"
+  },
+  "LoginCredentialsModel": {
+    "username": "نام کاربری",
+    "password": "کلمه عبور"
+  },
+  "RegisterModel": {
+    "email": "ایمیل",
+    "password": "کلمه عبور",
+    "confirmPassword": "تکرار کلمه عبور"
+  },
+  "ConfirmationModel": {
+    "userName": "نام کاربری",
+    "token": "کلید رمز"
+  },
+  "ResetPasswordModel": {
+    "username": "نام کاربری",
+    "token": "کلید رمز",
+    "newPassword": "کلمه عبور جدید",
+    "confirmNewPassword": "تکرار کلمه عبور جدید"
+  },
+  "SendResetPasswordTokenModel": {
+    "username": "ایمیل"
+  }
+}

@@ -1,0 +1,50 @@
+<div class="card ">
+  <div class="card-header bg-secondary text-white">
+    <span>
+      <i class="fa fa-align-center align-middle mx-1"></i>
+      {{'Labels.detailsBook' | translate}}
+    </span>
+  </div>
+  <div class="card-body">
+    <span *ngIf="getState.IsWait"
+          class="d-flex mx-auto spinner-grow">
+    </span>
+    <div class="row"
+         [hidden]="getState.IsWait">
+      <div class="col-md-4">
+        <img [src]="detailsModel?.imageUrl" class="img-thumbnail mx-auto d-block d-md-inline"/>
+      </div>
+      <div class="col-md-4">
+        <dl>
+          <dt class="col-md-12"
+              [innerText]="'BookDetailsModel.name' | translate">
+          </dt>
+          <dd [innerText]="detailsModel?.name || '-'">
+          </dd>
+        </dl>
+      </div>
+      <div class="col-md-4">
+        <dl>
+          <dt class="col-md-12"
+              [innerText]="'BookDetailsModel.description' | translate">
+          </dt>
+          <dd [innerText]="detailsModel?.description || '-'">
+          </dd>
+        </dl>
+      </div>
+
+    </div>
+
+  </div>
+  <div class="card-footer text-muted">
+    <button type="button"
+            class="btn btn-danger btn-icon-split"
+            routerLink="../">
+      <span class="icon text-white-50">
+        <i class="fa fa-arrow-left"></i>
+      </span>
+      <span class="text"
+            [innerText]="'Labels.back' | translate"></span>
+    </button>
+  </div>
+</div>

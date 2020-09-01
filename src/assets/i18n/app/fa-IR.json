@@ -1,0 +1,81 @@
+{
+  "Direction": "rtl",
+  "Calendar": "Jalali",
+  "Labels": {
+    "ApplicationTitle": "مدیریت تجهیزات ایمنی"
+  },
+  "Errors": {
+    "email": "ایمیل درست نیست"
+  },
+  "Menu": {
+    "Dashboard": "داشبورد",
+    "Products": "محصولات",
+    "BaseInfo": "اطلاعات پایه",
+    "ContentManagement": "مدیریت محتوا",
+    "Administration": "راهبری",
+    "Books": "کتابها",
+    "UserManagement": "مدیریت کاربران",
+    "LogManagement": "مدیریت رویدادها",
+    "SettingsManagement": "مدیریت تنظیمات",
+    "TodaysPostSettings": "تعیین پست روز"
+  },
+  "UserPanel": {
+    "title": "Richbook",
+    "knowledges": "دانش ها",
+    "readingHistory": "تاریخچه مطالعه",
+    "myBooks": "کتابهای من",
+    "shop": "فروشگاه",
+    "profile": "پروفایل",
+    "dashboard": "داشبورد",
+    "activities": "فعالیت ها",
+    "readingDesk": "میز مطالعه"
+  },
+  "GuestPanel": {
+    "title": "Richbook",
+    "home": "خانه",
+    "saveProgress": "ثبت پیشرفت",
+    "login": "ورود",
+    "register": "ثبت نام"
+  },
+  "BreadCrumbsTitle": {
+    "Dashboard": "داشبورد",
+    "Products": "محصولات",
+    "CreateProduct": "افزودن محصول",
+    "EditProduct": "ویرایش محصول",
+    "DeleteProduct": "ویرایش محصول",
+    "DetailsProduct": "\"جزئیات محصول\"و",
+    "Books": "کتابها",
+    "CreateBook": "ایجاد کتاب",
+    "EditBook": "ویرایش کتاب",
+    "DeleteBook": "حذف کتاب",
+    "BookSections": "لیست فصل ها",
+    "CreateBookSection": "افزودن فصل جدید به کتاب",
+    "EditBookSection": "ویرایش فصل",
+    "DeleteBookSection": "حذف فصل",
+    "SetPublishStatus": "تنظیم وضعیت انتشار",
+    "BookSectionPreview": "پیش نمایش فصل",
+    "UserManagement": "مدیریت کاربران",
+    "EditPermission": "مدیریت دسترسی ها",
+    "SettingsManagement": "مدیریت تنظیمات",
+    "TodaysPostSetting": "تنظیم پست روز",
+    "LogManagement": "مدیریت رویدادها",
+    "LogDetails": "جزئیات رویداد",
+    "TodaysPost": "پست امروز",
+    "MyInfo": "اطلاعات من",
+    "EditInfo": "ویرایش اطلاعات",
+    "ChangePassword": "تغییر کلمه عبور",
+    "BookDetails": "کتاب ها",
+    "ViewOrder": "سبد خرید",
+    "ShopProducts": "لیست محصولات",
+    "MyBooks": "لیست کتابها",
+    "DetailsBook": "جزئیات کتاب",
+    "ReadBook": "مطالعه کتاب",
+    "ReviewList": "لیست مرور",
+    "Login": "ورود",
+    "Register": "ثبت نام",
+    "SendResetPasswordToken": "بازیابی کلمه عبور",
+    "ResetPassword": "تغییر کلمه عبور",
+    "EmailConfirmation": "اعتبارسنجی ایمیل",
+    "ReadingHistory": "تاریخچه مطالعه"
+  }
+}

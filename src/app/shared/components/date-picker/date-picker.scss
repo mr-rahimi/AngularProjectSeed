@@ -1,0 +1,15 @@
+:host ::ng-deep .dropdown-menu {
+  right: 0;
+  left: initial !important;
+  transform: translate(0, 38px) !important;
+
+  .right .ngb-dp-navigation-chevron {
+    -webkit-transform: rotate(-135deg);
+    transform: rotate(-135deg);
+  }
+
+  .ngb-dp-navigation-chevron {
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+}

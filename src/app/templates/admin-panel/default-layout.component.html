@@ -1,0 +1,177 @@
+<div class="app sidebar-mini pace-done">
+  <div class="pace pace-inactive">
+    <div class="pace-progress" data-progress-text="100%" data-progress="99" style="transform: translate3d(100%, 0px, 0px);">
+      <div class="pace-progress-inner"></div>
+    </div>
+    <div class="pace-activity"></div>
+  </div>
+  <!-- Navbar-->
+  <header class="app-header">
+    <!-- Sidebar toggle button-->
+    <a class="app-sidebar__toggle" data-toggle="sidebar" aria-label="Hide Sidebar"><span></span></a>
+    <a class="app-header__logo d-flex align-items-center" href="/">
+      <img class="d-block" src="/img/icon.png" alt="">
+
+      <!--<img src="assets/image/Helmet.png" alt="Logo" />-->
+    </a>
+    <a class="app-header__logo hide-in-mobile d-flex align-items-center" href="index.html">
+      {{ 'Labels.appTitle' | translate }}
+    </a>
+    <!-- Navbar Right Menu-->
+    <ul class="app-nav">
+      <!--Notification Menu-->
+      <!-- User Menu-->
+      <li class="dropdown">
+        <a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Open Profile Menu">
+          <i class="fa fa-user fa-lg"></i>
+        </a>
+        <ul class="dropdown-menu settings-menu dropdown-menu-right">
+          <li>
+            <a class="dropdown-item"
+               [routerLink]="['/user-panel','profile','my-info']">
+              <i class="fa fa-cog fa-lg">
+              </i>
+              {{securityHelper.getDisplayName()}}
+            </a>
+          </li>
+
+          <li>
+            <a class="dropdown-item"
+               (click)="logout()"
+               style="cursor:pointer">
+              <i class="fa fa-sign-out-alt fa-lg">
+              </i>
+              <span [innerText]="'Labels.signout' | translate"></span>
+            </a>
+          </li>
+        </ul>
+      </li>
+
+    </ul>
+  </header>
+  <!-- Sidebar menu-->
+  <div class="app-sidebar__overlay"
+       data-toggle="sidebar">
+  </div>
+  <aside class="app-sidebar">
+    <div class="app-sidebar__user">
+      <!--<img class="app-sidebar__user-avatar" src="assets/image/User.svg" width="50" alt="User Image">-->
+      <div class="app-sidebar__user-avatar">
+        <i class="fa fa-user"></i>
+      </div>
+      <div>
+        <p class="app-sidebar__user-name">
+          {{securityHelper.getDisplayName()}}
+        </p>
+        <!--<p class="app-sidebar__user-designation">Frontend Developer</p>-->
+      </div>
+    </div>
+    <!-- Side Menu With 3 Level -->
+    <ul class="app-menu">
+      <ng-container *ngFor="let menu of menus">
+        <li *permission="menu.permission"
+            [ngClass]="{'treeview': menu.hasChild,'is-expanded':menu.selected}">
+          <a *ngIf="!menu.hasChild"
+             class="app-menu__item"
+             href="javascript: void(0);"
+             (click)="menuItemClick(menu)"
+             [routerLink]="menu.url">
+            <i class="app-menu__icon fa"
+               [ngClass]="menu.icon">
+            </i><span class="app-menu__label">
+              {{['Menu',menu.title].join('.') |translate}}
+            </span>
+          </a>
+          <a *ngIf="menu.hasChild"
+             class="app-menu__item"
+             href="javascript: void(0);"
+             (click)="menuItemClick(menu)"
+             data-toggle="treeview">
+            <i class="app-menu__icon fa"
+               [ngClass]="menu.icon">
+            </i>
+            <span class="app-menu__label ">
+              {{['Menu',menu.title].join('.') |translate}}
+            </span>
+            <i class="treeview-indicator fa fa-angle-right menuAngle"></i>
+          </a>
+          <ul class="treeview-menu subMenuParent"
+              *ngIf="menu.hasChild">
+            <ng-container *ngFor="let subMenu of menu.subMenus">
+              <li *permission="subMenu.permission"
+                  [ngClass]="{'treeview': subMenu.hasChild}">
+                <a *ngIf="!subMenu.hasChild"
+                   class="treeview-item"
+                   [routerLink]="subMenu.url">
+                  <i class="app-menu__icon fa"
+                     [ngClass]="subMenu.icon"></i>
+                  <span class="subMenuLabel">
+                    {{['Menu',subMenu.title].join('.') |translate}}
+                  </span>
+                </a>
+                <a *ngIf="subMenu.hasChild"
+                   [ngClass]="{'selectedSubMenu': subMenu.selected}"
+                   class="app-menu__item l_3"
+                   href="javascript: void(0);"
+                   (click)="subMenuItemClick(subMenu)">
+                  <i class="app-menu__icon fa"
+                     [ngClass]="subMenu.icon"></i>
+                  <span class="subMenuLabel">
+                    {{['Menu',subMenu.title].join('.') |translate}}
+                  </span>
+                  <i class="fa fa-angle-right menuAngle"></i>
+                </a>
+                <ul class="treeview-menu subMenuChildren"
+                    *ngIf="subMenu.hasChild"
+                    [@openClose]="subMenu.selected ? 'open' : 'closed'">
+                  <ng-container *ngFor="let subMenu2 of subMenu.subMenus">
+                    <li *permission="subMenu2.permission">
+                      <a class="treeview-item"
+                         [routerLink]="subMenu2.url">
+                        <i class="app-menu__icon fa"
+                           [ngClass]="subMenu2.icon"></i>
+                        <span class="subMenuLabel">
+                          {{['Menu',subMenu2.title].join('.') |translate}}
+                        </span>
+                      </a>
+                    </li>
+                  </ng-container>
+                </ul>
+              </li>
+            </ng-container>
+          </ul>
+        </li>
+      </ng-container>
+    </ul>
+  </aside>
+  <main class="app-content">
+    <div class="app-title">
+      <div>
+      </div>
+      <!--<ul class="app-breadcrumb breadcrumb">
+        <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
+        <li class="breadcrumb-item"><a href="#">Blank Page</a></li>
+      </ul>-->
+      <breadcrumb #parent>
+        <ol class="breadcrumb">
+          <ng-template ngFor let-route [ngForOf]="parent.breadcrumbs">
+            <li *ngIf="!route.terminal" class="breadcrumb-item">
+              <a href="" [routerLink]="[route.url]">{{ ['BreadCrumbsTitle',route.displayName].join('.') | translate }}</a>
+            </li>
+            <li *ngIf="route.terminal" class="breadcrumb-item active" aria-current="page">{{ ['BreadCrumbsTitle',route.displayName].join('.') | translate }}</li>
+          </ng-template>
+        </ol>
+      </breadcrumb>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="tile">
+          <router-outlet *ngIf="!isLoading"></router-outlet>
+          <span *ngIf="isLoading"
+                class="d-flex mx-auto spinner-grow">
+          </span>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>

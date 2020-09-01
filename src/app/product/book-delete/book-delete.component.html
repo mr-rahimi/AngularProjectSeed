@@ -1,0 +1,42 @@
+<div class="card ">
+  <div class="card-header bg-danger text-white">
+    <span>
+      <i class="fa fa-times align-middle mx-1"></i>
+      {{'Labels.delete' | translate}}
+    </span>
+  </div>
+  <div class="card-body">
+    <span *ngIf="getState.IsWait"
+          class="d-flex mx-auto spinner-grow">
+    </span>
+    <label class="text-danger"
+           *ngFor="let item of businessErrors"
+           [innerText]="['Errors',item.message].join('.') | translate">
+    </label>
+    <h5 class="text-danger"
+        [hidden]="getState.IsWait"
+        [innerText]="'Messages.deleteConfirmation' | translate">
+    </h5>
+  </div>
+  <div class="card-footer text-muted">
+    <button type="submit"
+            [disabled]="deleteState.IsWait"
+            class="btn btn-primary btn-icon-split"
+            (click)="onSubmit()">
+      <span class="icon text-white-50">
+        <i class="{{deleteState.IsWait ? 'spinner-grow spinner-grow-sm' : 'fa fa-check'}}"></i>
+      </span>
+      <span class="text"
+            [innerText]="'Labels.ok' | translate"></span>
+    </button>
+    <button type="button"
+            class="btn btn-danger btn-icon-split"
+            routerLink="../">
+      <span class="icon text-white-50">
+        <i class="fa fa-times"></i>
+      </span>
+      <span class="text"
+            [innerText]="'Labels.cancel' | translate"></span>
+    </button>
+  </div>
+</div>

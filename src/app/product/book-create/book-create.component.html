@@ -1,0 +1,87 @@
+<div class="card ">
+  <div class="card-header bg-success text-white">
+    <span>
+      <i class="fa fa-plus align-middle mx-1"></i>
+      {{'Labels.createBook' | translate}}
+    </span>
+  </div>
+  <div class="card-body">
+    <form #formModel="ngForm">
+      <label class="text-danger"
+             *ngFor="let item of formModel.form | transformErrors"
+             [innerText]="['Errors',item.message].join('.') | translate">
+      </label>
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          <label for="name"
+                 [innerText]="'BookCreateModel.name' | translate">
+          </label>
+          <input [(ngModel)]="createModel.name"
+                 required
+                 class="form-control"
+                 name="name"
+                 id="name"
+                 [placeholder]="'BookCreateModel.name' | translate">
+          <label class="text-danger"
+                 *ngFor="let item of formModel.form | transformErrors:'name'"
+                 [innerText]="['Errors',item.message].join('.') | translate">
+          </label>
+        </div>
+        <div class="form-group col-md-4">
+          <label for="description"
+                 [innerText]="'BookCreateModel.description' | translate">
+          </label>
+          <textarea [(ngModel)]="createModel.description"
+                    required
+                    class="form-control"
+                    name="description"
+                    id="description"
+                    [placeholder]="'BookCreateModel.description' | translate">
+          </textarea>
+          <label class="text-danger"
+                 *ngFor="let item of formModel.form | transformErrors:'description'"
+                 [innerText]="['Errors',item.message].join('.') | translate">
+          </label>
+        </div>
+        <div class="form-group col-md-4">
+          <label for="imageUrl"
+                 [innerText]="'BookCreateModel.imageUrl' | translate">
+          </label>
+          <input [(ngModel)]="createModel.imageUrl"
+                 url
+                 required
+                 class="form-control"
+                 name="imageUrl"
+                 id="imageUrl"
+                 [placeholder]="'BookCreateModel.imageUrl' | translate">
+          
+          <label class="text-danger"
+                 *ngFor="let item of formModel.form | transformErrors:'imageUrl'"
+                 [innerText]="['Errors',item.message].join('.') | translate">
+          </label>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="card-footer text-muted">
+    <button type="submit"
+            [disabled]="creationState.IsWait || formModel.invalid"
+            class="btn btn-primary btn-icon-split"
+            (click)="onSubmit()">
+      <span class="icon text-white-50">
+        <i class="{{creationState.IsWait ? 'spinner-grow spinner-grow-sm' : 'fa fa-check'}}"></i>
+      </span>
+      <span class="text"
+            [innerText]="'Labels.ok' | translate"></span>
+    </button>
+    <button type="button"
+            class="btn btn-danger btn-icon-split"
+            routerLink="../">
+      <span class="icon text-white-50">
+        <i class="fa fa-times"></i>
+      </span>
+      <span class="text"
+            [innerText]="'Labels.cancel' | translate"></span>
+    </button>
+  </div>
+</div>

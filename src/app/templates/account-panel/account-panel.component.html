@@ -1,0 +1,6 @@
+<div class="account_container">
+  <router-outlet *ngIf="!isLoading"></router-outlet>
+  <span *ngIf="isLoading"
+        class="d-flex mx-auto spinner-grow">
+  </span>
+</div>
