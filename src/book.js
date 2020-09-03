@@ -1,0 +1,2 @@
+hello config.json
+string

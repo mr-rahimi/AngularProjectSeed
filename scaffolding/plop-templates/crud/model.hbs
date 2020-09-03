@@ -1,0 +1,22 @@
+﻿@foreach (var item in @Model.fields)
+{
+    @if (Model.type == "ref")
+    {
+        <text> import { @(item.refName) } from @(item.refPath); </text>
+
+    }
+}
+
+export class @Model.listName {
+    @foreach (var item in @Model.fields)
+    {
+        if (item.type == "ref")
+        {
+            <text> @(item.name) : @(item.refName) </text>
+        }
+        else
+        {
+            <text> @(item.name) : @(item.type) </text>
+        }
+    }
+}

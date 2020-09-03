@@ -1,0 +1,51 @@
+﻿<!--advanced-search-start-->
+<!--advanced-search-end-->
+<p-toolbar styleClass="table-toolbar bg-light mt-1">
+    <div class="ui-toolbar-group-right">
+        <!--toolbar-right-start-->
+        <div class="input-group">
+            <input type="text" class="form-control" [(ngModel)]="service.simpleSearchModel.key" placeholder="{{'Labels.search' | translate}}" (keyup.enter)="service.refresh()">
+            <div class="input-group-append">
+                <button class="btn bg-primary text-white" type="button" (click)="service.refresh()">
+                    <i class="fa fa-search"></i>
+                </button>
+            </div>
+        </div>
+        <!--toolbar-right-end-->
+    </div>
+    <div class="ui-toolbar-group-left">
+        <!--toolbar-left-start-->
+        <!--toolbar-left-end-->
+    </div>
+</p-toolbar>
+<p-table [value]="(service.page | async)?.items"
+         [lazy]="true"
+         [loading]="(service.state | async).IsWait"
+         (onLazyLoad)="getPage($event)"
+         [paginator]="true"
+         [rows]="(service.page | async)?.pageSize"
+         [first]="(service.page | async)?.pageIndex * page?.pageSize"
+         [totalRecords]="(service.page | async)?.totalPageItem"
+         selectionMode="single"
+         [(selection)]="selectedItem"
+         dataKey="@Model.key"
+         styleClass="mt-1">
+    <ng-template pTemplate="header" let-columns>
+        <tr>
+            <th style="width:5%">{{'Labels.row' | translate}}</th>
+            @foreach (var field in Model.fields)
+            {
+                <th style="width:35%">{{'@Model.name.@field.name' | translate }}</th>
+            }
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData let-columns="columns" let-index="rowIndex">
+        <tr [pSelectableRow]="rowData">
+            <td> {{index+1}}</td>
+            @foreach (var field in Model.fields)
+            {
+                <td>{{ rowData.@field.name }} </td>
+            }
+        </tr>
+    </ng-template>
+</p-table>

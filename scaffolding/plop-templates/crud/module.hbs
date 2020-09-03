@@ -1,0 +1,37 @@
+﻿import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from '../shared/shared.module';
+import { LocalizationModule } from '../shared/Localization/localization.module';
+import { RoutingModule } from './routing.module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgSelectModule } from '@ng-select/ng-select';
+import { {{pascalCase entity.name}}ListComponent} from './{{camelCase entity.name}}-list/{{camelCase entity.name}}-list.component';
+import { {{pascalCase entity.name}}CreateComponent } from './{{camelCase entity.name}}-create/{{camelCase entity.name}}-create.component';
+import { {{pascalCase entity.name}}EditComponent } from './{{camelCase entity.name}}-edit/{{camelCase entity.name}}-edit.component';
+import { {{pascalCase entity.name}}DeleteComponent } from './{{camelCase entity.name}}-delete/{{camelCase entity.name}}-delete.component';
+import { {{pascalCase entity.name}}DetailsComponent } from './{{camelCase entity.name}}-details/{{camelCase entity.name}}-details.component';
+
+@@NgModule({
+  declarations: [
+    {{pascalCase entity.name}}ListComponent,
+    {{pascalCase entity.name}}CreateComponent,
+    {{pascalCase entity.name}}EditComponent,
+    {{pascalCase entity.name}}DeleteComponent,
+    {{pascalCase entity.name}}DetailsComponent 
+  ],
+  imports: [
+    ReactiveFormsModule,
+    RoutingModule,
+    SharedModule,
+    LocalizationModule.forChild({
+      moduleName: "{{camelCase entity.name}}"
+    }),
+    NgbModule,
+    NgSelectModule
+  ],
+  entryComponents: [
+  ],
+  providers: []
+})
+
+export class Module { }

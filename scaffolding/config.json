@@ -1,0 +1,25 @@
+{
+  "name": "book",
+  "listName": "book",
+  "key": "id",
+  "fields": [
+    {
+      "name": "id",
+      "type": "string"
+    },
+    {
+      "name": "name",
+      "type": "string"
+    },
+    {
+      "name": "description",
+      "type": "string"
+    },
+    {
+      "name": "category",
+      "type": "ref",
+      "refName": "Category",
+      "refPath": "../Category"
+    }
+  ]
+ }

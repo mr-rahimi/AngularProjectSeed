@@ -1,0 +1,69 @@
+﻿/*imports-start*/
+import { Injectable } from '@@angular/core';
+import { Observable, BehaviorSubject } from 'rxjs';
+import { PagingOptions } from '../shared/models/common/pagingOptions';
+import { SortingOptions } from '../shared/models/common/sortingOptions';
+import { SimpleSearchModel } from '../shared/models/common/simple-search-model';
+import { PagedSortedList } from '../shared/models/common/sortedList';
+import { share, map } from 'rxjs/operators';
+import { @(StringHelper.ToPascalCase(Model.listName)) } from '../shared/models/@Model.name/@(StringHelper.ToPascalCase(Model.listName))';
+import { @(StringHelper.ToPascalCase(Model.name))Service } from '../shared/services/@(StringHelper.ToCamelCase(Model.name)).service';
+import { ObservableState, recordState} from '../shared/rxjsHelpers';
+/*imports-end*/
+
+@@Injectable({ providedIn: 'root' })
+export class @(StringHelper.ToPascalCase(Model.name))ListService
+{
+
+constructor(
+/*deps-start*/
+    private @(StringHelper.ToCamelCase(Model.name))Service: @(StringHelper.ToPascalCase(Model.name))Service
+    /*deps-end*/
+    ) {
+    }
+    /*prop-start*/
+    pagingOptions: PagingOptions = { pageIndex: 0, pageSize: 5 };
+    sortingOptions: SortingOptions = { sortingOptions: []
+    };
+    simpleSearchModel: SimpleSearchModel = {};
+    simpleSearch: boolean = true;
+
+    private _page: BehaviorSubject<PagedSortedList<@(StringHelper.ToPascalCase(Model.listName))>> = new BehaviorSubject<PagedSortedList<@(StringHelper.ToPascalCase(Model.listName))>>({
+    items: [],
+    pageIndex: 0,
+    pageSize: 5,
+    sortingOptions: [],
+    totalItemsCount: 0
+  });
+  public loadState: ObservableState = new ObservableState();
+  private _state: BehaviorSubject<ObservableState> = new BehaviorSubject<ObservableState>
+    (this.loadState);
+    /*prop-end*/
+
+/*func-start*/
+    refresh() {
+    if (this.simpleSearch) {
+    this.simpleSerach();
+    return;
+    }
+    }
+
+    private simpleSerach() {
+    var x = { ...this.simpleSearchModel, ...this.pagingOptions, ...this.sortingOptions };
+    this.loadState.Start();
+    const getObservable = this.equipmentService.simpleSearch(x)
+    .pipe(
+    share(),
+    recordState(this.loadState)
+    );
+    }
+
+    get page(): Observable<PagedSortedList<@(StringHelper.ToPascalCase(Model.listName))>> {
+    return this._page;
+  }
+  get state(): Observable<ObservableState> {
+    return this._state;
+  }
+/*func-end*/
+
+}

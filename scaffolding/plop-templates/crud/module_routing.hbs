@@ -1,0 +1,55 @@
+﻿
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+import { {{pascalCase entity.name}}ListComponent } from './{{camelCase entity.name}}-list/{{camelCase entity.name}}-list.component';
+import { {{pascalCase entity.name}}CreateComponent } from './{{camelCase entity.name}}-create/{{camelCase entity.name}}-create.component';
+import { {{pascalCase entity.name}}EditComponent } from './{{camelCase entity.name}}-edit/{{camelCase entity.name}}-edit.component';
+import { {{pascalCase entity.name}}DeleteComponent } from './{{camelCase entity.name}}-delete/{{camelCase entity.name}}-delete.component';
+import { {{pascalCase entity.name}}DetailsComponent } from './{{camelCase entity.name}}-details/{{camelCase entity.name}}-details.component';
+
+const routes: Routes = [
+  {
+    path: '',
+    component: {{pascalCase entity.name}}ListComponent 
+  },
+  {
+    path: 'create-{{camelCase entity.name}}',
+    data: {
+      breadcrumb: 'Create{{pascalCase entity.name}}'
+    },
+    component: {{pascalCase entity.name}}CreateComponent
+  },
+  {
+    path: 'edit-{{camelCase entity.name}}',
+    data: {
+      breadcrumb: 'Edit{{pascalCase entity.name}}'
+    },
+    component: {{pascalCase entity.name}}EditComponent
+  },
+  {
+    path: 'delete-{{camelCase entity.name}}',
+    data: {
+      breadcrumb: 'Delete{{pascalCase entity.name}}'
+    },
+    component: {{pascalCase entity.name}}DeleteComponent
+  },
+  {
+    path: 'details-{{camelCase entity.name}}',
+    data: {
+      breadcrumb: 'Details{{pascalCase entity.name}}'
+    },
+    component: {{pascalCase entity.name}}DetailsComponent
+  }
+];
+
+@NgModule({
+  imports: [
+    RouterModule.forChild(routes)
+  ],
+  exports: [
+  RouterModule
+  ],
+  declarations: [],
+})
+export class RoutingModule { }
+
