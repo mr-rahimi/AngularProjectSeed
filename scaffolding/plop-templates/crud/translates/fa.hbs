@@ -1,0 +1,31 @@
+{
+  "Labels": {
+    create{{pascalCase entity.name}}: ایجاد {{entity.title}}
+  },
+  "Messages": {
+
+  },
+  "Errors": {
+
+  },
+  "{{pascalCase entity.name}}": {
+    {{#each entity.fields}}
+            {{name}} : "{{title}}";
+    {{/each}}
+  },
+  "{{pascalCase entity.name}}CreateModel": {
+    {{#each entity.fields}}
+            {{name}} : "{{title}}";
+    {{/each}}
+  },
+  "{{pascalCase entity.name}}EditModel": {
+    {{#each entity.fields}}
+            {{name}} : "{{title}}";
+    {{/each}}
+  },
+  "{{pascalCase entity.name}}DetailsModel": {
+    {{#each entity.fields}}
+            {{name}} : "{{title}}";
+    {{/each}}
+  }
+}

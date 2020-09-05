@@ -10,6 +10,7 @@ import { BookCreateComponent } from './book-create/book-create.component';
 import { BookEditComponent } from './book-edit/book-edit.component';
 import { BookDeleteComponent } from './book-delete/book-delete.component';
 import { BookDetailsComponent } from './book-details/book-details.component';
+import { BookListService } from './book-list.service';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,9 @@ import { BookDetailsComponent } from './book-details/book-details.component';
   ],
   entryComponents: [
   ],
-  providers: []
+  providers: [
+    BookListService
+  ]
 })
 
 export class Module { }

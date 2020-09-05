@@ -1,0 +1,15 @@
+﻿{{#each entity.fields}}
+    {{#if (isRef this)}}
+        import { {{refName}} } from {{refPath}};
+    {{/if}}
+{{/each}}
+
+export class {{pascalCase entity.name}}CreateModel {
+    {{#each entity.fields}}
+        {{#if (isRef this)}}
+            {{name}} : {{refName}};
+        {{else}}
+            {{name}} : {{type}};
+        {{/if}}
+    {{/each}}
+}

@@ -1,41 +1,28 @@
-﻿import { Component, OnInit, ChangeDetectorRef, ChangeDetectionStrategy, OnDestroy } from '@@angular/core';
-import { Service } from '../HubState';
-import { Subscription } from 'rxjs';
-@{ 
-     
-    var listNamePascalCase = StringHelpers.ToPascalCase(Model.listName);
-}
-@@Component({
-    selector: 'app-@Model.name-list',
-    templateUrl: './list.component.html',
-    styleUrls: ['./list.component.scss'],
-    changeDetection: ChangeDetectionStrategy.OnPush
+﻿import { Component, OnInit, OnDestroy, QueryList, ViewChildren } from '@angular/core';
+import { BookListService } from '../book-list.service';
+import { {{pascalCase entity.name}}ModuleService } from './service.module';
+
+@Component({
+  selector: '{{camelCase entity.name}}-list',
+  templateUrl: './{{camelCase entity.name}}-list.component.html',
+  styleUrls: ['./{{camelCase entity.name}}-list.component.scss'],
 })
-export class @(listNamePascalCase)ListComponent implements OnInit, OnDestroy {
+export class {{pascalCase entity.name}}ListComponent implements OnInit, OnDestroy {
 
-    private pageChange: Subscription;
-    private stateChange: Subscription;
-    constructor(
-        private service: Service,
-        private cdr: ChangeDetectorRef
-    ) {
-    }
-
-    ngOnDestroy(): void {
-        this.pageChange.unsubscribe();
-        this.stateChange.unsubscribe();
-    }
-    ngOnInit() {
-        this.pageChange = this.service.page.subscribe(x => {
-            this.cdr.detectChanges();
-        });
-        this.stateChange = this.service.state.subscribe(x => {
-            this.cdr.detectChanges();
-        });
-    }
-   
-    getPage(event: any) {
-        this.service.pagingOptions.pageIndex = event.first / event.rows;
-        this.service.refresh();
-    }
+  constructor(
+    public service: {{pascalCase entity.name}}ModuleService
+  ) {
+  }
+  onPageChange(event: number) {
+    this.service.pagingOptions.pageIndex = event - 1;
+    this.service.refresh();
+  }
+  onPageSizeChange() {
+    this.service.refresh();
+  }
+  ngOnDestroy(): void {
+  }
+  ngOnInit() {
+    this.service.refresh();
+  }
 }

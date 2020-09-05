@@ -1,25 +1,34 @@
 {
   "name": "book",
+  "title":"کتاب",
   "listName": "book",
   "key": "id",
   "fields": [
     {
       "name": "id",
-      "type": "string"
+      "type": "string",
+      "input":"text",
+      "title":"شناسه"
     },
     {
       "name": "name",
-      "type": "string"
+      "type": "string",
+      "input":"text",
+      "title":"نام"
     },
     {
       "name": "description",
-      "type": "string"
+      "type": "string",
+      "input":"textarea",
+      "title":"توضیحات"
     },
     {
       "name": "category",
       "type": "ref",
+      "input":"text",
       "refName": "Category",
-      "refPath": "../Category"
+      "refPath": "../category",
+      "title":"دسته بندی"
     }
   ]
  }

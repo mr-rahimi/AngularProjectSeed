@@ -10,6 +10,7 @@ import { {{pascalCase entity.name}}CreateComponent } from './{{camelCase entity.
 import { {{pascalCase entity.name}}EditComponent } from './{{camelCase entity.name}}-edit/{{camelCase entity.name}}-edit.component';
 import { {{pascalCase entity.name}}DeleteComponent } from './{{camelCase entity.name}}-delete/{{camelCase entity.name}}-delete.component';
 import { {{pascalCase entity.name}}DetailsComponent } from './{{camelCase entity.name}}-details/{{camelCase entity.name}}-details.component';
+import { {{pascalCase entity.name}}ModuleService } from './service.module';
 
 @@NgModule({
   declarations: [
@@ -31,7 +32,9 @@ import { {{pascalCase entity.name}}DetailsComponent } from './{{camelCase entity
   ],
   entryComponents: [
   ],
-  providers: []
+  providers: [
+    {{pascalCase entity.name}}ModuleService
+  ]
 })
 
 export class Module { }
