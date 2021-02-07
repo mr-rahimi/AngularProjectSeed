@@ -1,0 +1,121 @@
+
+body[layout='designer-panel'] {
+  .btn.btn-icon-split > span {
+    height: 36px;
+    line-height: 20px;
+  }
+}
+/*card*/
+.card {
+  margin: 25px 0 0 0;
+  padding: 0;
+  border: 0;
+  border-radius: 40px;
+  box-shadow: 0 3px 26px 0 rgba(0, 0, 0, 0.09);
+  background-color: #ffffff;
+  .card-body{
+      padding:2rem;
+  }
+}
+
+/*input-group*/
+
+.input-group {
+  margin: 0;
+  padding: 0;
+
+  input {
+    background-color: #f6f6f6;
+    border-radius: 0 20px 20px 0 !important;
+    padding-bottom: 20px 20px 20px 20px;
+    height: calc(2em + 1.5rem + 2px) !important;
+    border: 0;
+    box-shadow: none;
+
+    &::placeholder { /* Most modern browsers support this now. */
+      font-size: 15px;
+    }
+
+    &:focus {
+      background-color: #f6f6f6;
+      box-shadow: 0 0 0;
+      color: $dark;
+    }
+  }
+
+  .input-group-append {
+    button:active:hover {
+      background-color: #f6f6f6;
+      box-shadow: 0 0 0;
+    }
+  }
+
+  span {
+    background-color: #f6f6f6;
+    border-radius: 20px 0 0 20px !important;
+    padding-left: 30px;
+    padding-right: 30px;
+    border: 0;
+    box-shadow: none;
+
+    i {
+      color: #13c8ff;
+    }
+  }
+
+  button {
+    background-color: #f6f6f6;
+    border-radius: 20px 0 0 20px !important;
+    padding-left: 30px;
+    padding-right: 30px;
+    border: 0;
+    box-shadow: none;
+
+    i {
+      color: #13c8ff;
+    }
+
+    &:active:hover {
+      background-color: #d1d1d1;
+      box-shadow: 0 0 0;
+      color: #13c8ff;
+    }
+
+    &:hover {
+      background-color: #d1d1d1;
+    }
+
+    &:after {
+      content: "";
+      position: absolute;
+      right: 0;
+      bottom: 25%;
+      height: 50%;
+      border-right: 1px solid #d1d1d1;
+    }
+  }
+}
+
+
+/*pagination*/
+
+ul.pagination {
+  box-shadow: 0 3px 26px 0 rgba(0, 102, 255, 0.2);
+  background-color: #ffffff;
+  border-radius: 15px;
+
+  li {
+    a {
+      background-color: transparent !important;
+      border: 0;
+    }
+
+    &.page-item.active .page-link {
+      color: $primary;
+    }
+
+    &.page-item .page-link {
+      color: $secondary;
+    }
+  }
+}

@@ -1,0 +1,27 @@
+<div class="card">
+  <div class="card-body">
+    <h6 [innerText]="'Messages.enter_new_plan_info' | translate"
+        class="text-left text-secondary mb-2"></h6>
+    <div class="form-row">
+      <div class="form-group col-md-4">
+        <div class="input-group mb-3">
+          <input type="text"
+                 class="form-control"
+                 [placeholder]="'CreatePlanDto.name' | translate"
+                 aria-label="name">
+          <div class="input-group-append">
+            <span class="input-group-text" id="basic-addon1">
+              <i class="fa fa-exclamation-circle"></i>
+            </span>
+          </div>
+        </div>
+        <!--<label class="text-danger"
+               *ngFor="let item of formModel.form | transformErrors:'passageTitle'"
+               [innerText]="['Errors',item.message].join('.') | translate">
+        </label>-->
+      </div>
+      
+    </div>
+    
+  </div>
+</div>

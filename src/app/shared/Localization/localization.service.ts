@@ -15,7 +15,9 @@ export class LocalizationService {
     --this.loaderCount;
   }
   defaultLocale = "fa-IR";
+
   locale: BehaviorSubject<string> = new BehaviorSubject<string>(this.getLocale());
+
   setLocale(locale: string): void {
     localStorage.setItem("culture", locale);
     this.locale.next(locale);

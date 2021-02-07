@@ -1,0 +1,27 @@
+.card.entity_count {
+  margin: 25px 0 0 0;
+  padding: 0;
+  border: 0;
+  border-radius: 40px;
+  box-shadow: 0 3px 26px 0 rgba(0, 0, 0, 0.09);
+  background-color: #ffffff;
+
+  dl {
+    display: inline-block;
+    margin-bottom: 0;
+
+    &:not(:last-child) {
+      border-left: 1px solid #c5c9d7;
+    }
+
+    dt {
+      color: #8990ad;
+    }
+
+    dd {
+      margin: 10px 0 0 0;
+      color: #11193c;
+      font-size: 25px;
+    }
+  }
+}

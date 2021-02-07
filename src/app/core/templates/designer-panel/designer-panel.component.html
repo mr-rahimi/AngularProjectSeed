@@ -1,0 +1,59 @@
+<div class="template_container">
+    <div id="header">
+      <div class="title">
+        <breadcrumb #parent>
+          <ol>
+            <ng-template ngFor let-route [ngForOf]="parent.breadcrumbs">
+              <li *ngIf="!route.terminal" class="breadcrumb-item">
+                <a href="" [routerLink]="[route.url]">{{ ['BreadCrumbsTitle',route.displayName].join('.') | translate }}</a>
+              </li>
+              <li *ngIf="route.terminal" class="breadcrumb-item active" aria-current="page">
+                <label>{{ ['BreadCrumbsTitle',route.displayName].join('.') | translate }}</label>
+              </li>
+            </ng-template>
+          </ol>
+        </breadcrumb>
+        <!--<label [innerText]="title"></label>-->
+      </div>
+      <div class="avatar">
+        <label>محمد رضا رحیمی</label>
+        <img src="assets/designer-panel/user.svg" />
+      </div>
+    </div>
+  <div id="content">
+  <router-outlet></router-outlet>
+  </div>
+  <div id="hamburgerBtn"></div>
+  <nav id="sideMenu">
+    <div class="nav-brand">
+      <p><a href="/">Richbook</a></p>
+      <img src="assets/designer-panel/richbook_blue.png" />
+    </div>
+    <ul class="nav-items">
+      <li>
+        <div class="nav-item" routerLinkActive="active" routerLink="/panel/dashboard">
+          <img src="assets/designer-panel/metrics.svg">
+          <label>داشبورد</label>
+        </div>
+      </li>
+      <li>
+        <div class="nav-item" routerLinkActive="active">
+          <img src="assets/designer-panel/puzzle.svg">
+          <label>چالش ها</label>
+        </div>
+      </li>
+      <li>
+        <div class="nav-item" routerLinkActive="active" routerLink="/panel/plan">
+          <img src="assets/designer-panel/path.svg">
+          <label>مسیر ها</label>
+        </div>
+      </li>
+    </ul>
+    <div class="footer">
+      <div class="exit">
+        <img src="assets/designer-panel/path.svg">
+        <label>خروج</label>
+      </div>
+    </div>
+  </nav>
+</div>

@@ -1,4 +1,11 @@
 {
   "Direction": "ltr",
-  "Calendar": "Gregorian"
+  "Calendar": "Gregorian",
+  "GuestPanel": {
+    "title": "Richbook",
+    "home": "Home",
+    "saveProgress": "ثبت پیشرفت",
+    "login": "Login",
+    "register": "Register"
+  }
 }

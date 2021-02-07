@@ -1,0 +1,16 @@
+{
+  "Labels": {
+    "ApplicationTitle": "مدیریت تجهیزات ایمنی",
+    "newPlan": "مسیر جدید",
+    "newChallenge": "چالش جدید"
+  },
+  "Errors": {
+    "email": "ایمیل درست نیست"
+  },
+  "Messages": {
+    "enter_new_plan_info": "اطلاعات مسیر یادگیری جدید را وارد کنید"
+  },
+  "CreatePlanDto": {
+    "name": "نام"
+  }
+}

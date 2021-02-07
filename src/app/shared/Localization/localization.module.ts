@@ -7,6 +7,7 @@ import { LocalizationService } from "./localization.service";
 export class LocalizationModuleConfig {
   moduleName: string;
 }
+
 function ParametricTranslateLoader(http: HttpClient, conf: LocalizationModuleConfig) {
   const module = conf.moduleName;
   const baseTranslateUrl = './assets/i18n';
@@ -23,6 +24,7 @@ function ParametricTranslateLoader(http: HttpClient, conf: LocalizationModuleCon
   };
   return new ModuleTranslateLoader(http, options);
 }
+
 @NgModule({
   declarations: [],
   imports: [
@@ -49,8 +51,8 @@ export class LocalizationModuleForChild {
       localizationService.addloader();
       translate.use(x)
         .subscribe(
-          x => localizationService.decreaseloader(),
-          x => localizationService.decreaseloader()
+          () => localizationService.decreaseloader(),
+          () => localizationService.decreaseloader()
         );
     });
   }
@@ -83,8 +85,8 @@ export class LocalizationModuleForRoot {
       localizationService.addloader();
       translate.use(x)
         .subscribe(
-          x => localizationService.decreaseloader(),
-          x => localizationService.decreaseloader()
+          () => localizationService.decreaseloader(),
+          () => localizationService.decreaseloader()
         );
     });
   }
@@ -92,14 +94,16 @@ export class LocalizationModuleForRoot {
 
 export class LocalizationModule {
 
-  static forRoot(conf: LocalizationModuleConfig): ModuleWithProviders {
+  static forRoot(name: string): ModuleWithProviders<LocalizationModuleForRoot> {
+    const conf = { moduleName: name } as LocalizationModuleConfig;
     return {
       ngModule: LocalizationModuleForRoot,
       providers: [{ provide: LocalizationModuleConfig, useValue: conf }]
     };
   }
 
-  static forChild(conf: LocalizationModuleConfig): ModuleWithProviders {
+  static forChild(name: string): ModuleWithProviders<LocalizationModuleForChild> {
+    const conf = { moduleName: name } as LocalizationModuleConfig;
     return {
       ngModule: LocalizationModuleForChild,
       providers: [{ provide: LocalizationModuleConfig, useValue: conf }]

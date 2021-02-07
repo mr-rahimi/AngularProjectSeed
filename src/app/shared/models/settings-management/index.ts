@@ -1,1 +1,0 @@
-export { TodaysPostModel } from './TodaysPostModel';

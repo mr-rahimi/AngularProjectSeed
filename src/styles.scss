@@ -1,9 +1,5 @@
-@import  '@fortawesome/fontawesome-free/css/all.min.css';
+@import '@fortawesome/fontawesome-free/css/all.min.css';
 
-@import "app/ui-framework/ui-framework.scss";
+@import "ui-framework/ui-framework.scss";
 @import "~bootstrap-v4-rtl/dist/css/bootstrap-rtl.min.css";
-
-// app
-@import "app/shared/css/app";
-
-
+@import "assets/designer-panel/app";

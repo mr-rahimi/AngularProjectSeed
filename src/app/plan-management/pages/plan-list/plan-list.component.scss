@@ -1,0 +1,125 @@
+@import "../../../../../node_modules/bootstrap/scss/functions";
+@import "../../../../../node_modules/bootstrap/scss/variables";
+@import "../../../../../node_modules/bootstrap/scss/mixins";
+
+/*.search_box {
+  margin: 0;
+  padding: 0;
+
+  input {
+    background-color: #f6f6f6;
+    border-radius: 0 20px 20px 0 !important;
+    padding-bottom: 20px 20px 20px 20px;
+    height: calc(2em + 1.5rem + 2px) !important;
+    border: 0;
+    box-shadow: none;
+
+    &::placeholder {*/ /* Most modern browsers support this now. */
+      /*font-size: 12px;
+    }
+  }
+
+  .input-group-append {
+    button:active:hover {
+      background-color: #f6f6f6;
+      box-shadow: 0 0 0;
+    }
+  }
+
+  button {
+    background-color: #f6f6f6;
+    border-radius: 20px 0 0 20px !important;
+    padding-left: 30px;
+    padding-right: 30px;
+    border: 0;
+    box-shadow: none;
+
+    i {
+      color: #13c8ff;
+    }
+
+    &:active:hover {
+      background-color: #d1d1d1;
+      box-shadow: 0 0 0;
+      color: #13c8ff;
+    }
+
+    &:hover {
+      background-color: #d1d1d1;
+    }
+
+    &:after {
+      content: "";
+      position: absolute;
+      right: 0;
+      bottom: 25%;
+      height: 50%;
+      border-right: 1px solid #d1d1d1;
+    }
+  }
+}*/
+
+.plan_list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+/*@include media-breakpoint-up(lg) {
+  .card.plan_item {
+    width: 30%;
+  }
+}
+
+@include media-breakpoint-down(lg) {
+  .card.plan_item {
+    width: 45%;
+  }
+}
+
+@include media-breakpoint-down(md) {
+  .card.plan_item {
+    width: 100%;
+  }
+}*/
+/*card*/
+.card.plan_item {
+  .card-body {
+    display: flex;
+
+    div {
+      &.image {
+        width: 70px;
+
+        img {
+          width: 70px;
+          height: 70px;
+          border-radius: 20px;
+        }
+      }
+
+      &.description {
+        margin-right: 20px;
+        text-align: right;
+        color: #6c757d;
+        overflow: hidden;
+        white-space: nowrap;
+
+        label {
+          font-size: 23px;
+        }
+
+        p {
+          font-size: 16px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+
+        button.details {
+          min-width: 120px;
+        }
+      }
+    }
+  }
+}
+
