@@ -1,4 +1,6 @@
 {
+  "Direction": "rtl",
+  "Calendar": "Jalali",
   "Errors": {
     "email": "آدرس ایمیل وارد شده معتبر نمی باشد",
     "required": "وارد کردن این فیلد اجباری می باشد",
@@ -9,11 +11,12 @@
     "Null_Value_Not_Allowed": "برخی از فیلد ها خالی است"
   },
   "Labels": {
-    "either":"مهم نیست" ,
+    "either": "مهم نیست",
     "yes": "بلی",
     "no": "خیر",
     "ok": "تائید",
     "cancel": "انصراف",
+    "close": "بستن",
     "back": "بازگشت",
     "appTitle": "Richbook",
     "actions": "عملیات",
@@ -49,7 +52,9 @@
     "readPassage": "خواندن متن",
     "help": "راهنما",
     "introduction": "چکیده",
-    "challenges": " چالش ها"
+    "challenges": " چالش ها",
+    "closeBook": "بستن کتاب",
+    "bookContents": "محتوای کتاب"
   },
   "KnowledgeTypes": {
     "word": "کلمه",

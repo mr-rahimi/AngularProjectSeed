@@ -1,0 +1,70 @@
+
+  <div class="row m-0 mb-0 mb-sm-2">
+    <div class="col-md-4 align-items-center m-0 p-0">
+      <div class="search_box input-group text-md-right px-0">
+        <input type="text"
+               class="form-control"
+               placeholder="عبارت مورد نظرتان را برای جستجو وارد کنید"
+               aria-label="Recipient's username"
+               aria-describedby="basic-addon2">
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary" type="button">
+            <i class="fa fa-search"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-8 mx-0 px-0 d-flex align-items-center justify-content-start justify-content-sm-end py-2 py-sm-0">
+      <button type="button"
+              class="create_path btn btn-success btn-icon-split"
+              routerLink="./new-plan">
+        <span class="icon text-white-50">
+          <i class="fa fa-times"></i>
+        </span>
+        <span class="text"
+              [innerText]="'Labels.newPlan' | translate"></span>
+      </button>
+    </div>
+  </div>
+  
+  <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-2 row-cols-xl-3 m-0">
+    <div class="col mb-4 px-0"
+         *ngFor="let item of service.currentPage?.items; let i = index">
+      <div class="card plan_item">
+        <div class="card-body">
+          <div class="image">
+            <img src="assets/test/image.jpg" />
+          </div>
+          <div class="description">
+            <label>مکالمه زبان انگلیسی</label>
+            <p>
+              دانش مورد نیاز برای مکالمه روان زبان انگلیسی
+            </p>
+            <button type="button"
+                    class="details btn btn-primary mr-3"
+                    routerLink="../"
+                    [innerText]="'Labels.details' | translate">
+            </button>
+            <button type="button"
+                    class="menu btn btn-light"
+                    routerLink="../">
+              <i class="fa fa-ellipsis-h"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+<div class="col-lg-6 offset-lg-3 d-flex justify-content-lg-center justify-content-center px-1 my-2"
+     *ngIf="service.currentPage?.totalItemsCount">
+  <ngb-pagination [collectionSize]="service.currentPage?.totalItemsCount"
+                  [maxSize]="5"
+                  [boundaryLinks]="true"
+                  [page]="service.currentPage?.pageIndex + 1"
+                  (pageChange)="onPageChange($event)"
+                  [pageSize]="service.currentPage?.pageSize"
+                  class="minimal-xs">
+  </ngb-pagination>
+</div>
+
